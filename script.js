@@ -78,3 +78,268 @@ let questions=[{
     ],
 }
 ]
+////////////////////////
+                     // global variable
+let interval;
+let ratt=0;
+
+let score=0;
+let wrong=0;
+// create wrapper,score div ,btn
+let scorediv=document.createElement("div")
+let scorebtn=document.createElement("button");
+scorebtn.innerText="see your score"
+let wrapper=document.createElement("div");
+    wrapper.className="wrapper"
+    document.body.append(wrapper)
+// match timer div 
+let timer=document.querySelector(".timer")
+let clear;// to clear timer
+let resetbtn= document.createElement("button");
+
+
+///// fuctions
+//start function
+let startbtn=document.createElement("button");
+startbtn.innerText="start"
+startbtn.classList.add("startbtn")
+let startdiv=document.createElement("div")
+startdiv.className="startdiv"
+startdiv.append(startbtn)
+document.body.append(startdiv);
+startbtn.addEventListener("click",(e)=>{
+   let name =prompt("hejsan skriva ditt name")
+    e.target.parentElement.remove()
+    timer.style.display="flex"
+    ////////add timer function
+    clear=setInterval(starttimer,1000)
+
+    let nameofuser=document.createElement("p");
+    nameofuser.className="nameofuser";
+    document.body.append(nameofuser);
+    if(name===""){
+        name="unknown";
+        nameofuser.innerHTML=`velkommen ${name}`
+    }
+    else{
+        nameofuser.innerHTML=`velkommen ${name}`;
+    }
+
+
+})
+
+
+////////////////le
+
+// loop in all array
+
+questions.forEach((el,index)=>{
+  
+   let containerdiv=document.createElement("div")
+    /// create  containerdiv to hold all element
+
+    containerdiv.className="container"
+    let h1=document.createElement("h1")
+    h1.className="h1"
+h1.innerText= `${index+1} - ${el.question}`
+
+containerdiv.append(h1)
+wrapper.append(containerdiv)
+let containerbutton=document.createElement("div")
+/// class for  containerbutton
+containerbutton.className="containerbutton"
+let nextbtn=document.createElement("button")
+nextbtn.className="nextbtn"
+nextbtn.innerHTML="next"
+// loop in answer array and create buttons
+
+el.answer.forEach((element)=>{
+    //console.log(element)
+    let btns=document.createElement("button");
+    btns.className="btn"
+btns.innerHTML=element.text
+
+containerbutton.append(btns)
+containerdiv.append(containerbutton,nextbtn);
+
+// click event fot all buttons
+btns.addEventListener("click",(e)=>{
+    let answervalue=e.target.innerHTML;
+    
+
+
+   // console.log(answervalue)
+
+   // function to see score and wrong
+    let correctvalue=element.correct
+   //console.log(correctvalue)
+    if(correctvalue==="true"){
+        score+=10
+        ratt++
+        
+        e.target.style.background="green"
+        containerbutton.classList.add("stop")
+        let scorediv=document.createElement("div");
+        let p=document.createElement("p");
+        scorediv.className="scorediv"
+        p.classList.add("p")
+        p.classList.add("scoretext")
+
+        p.innerHTML=`rätt bra gjört ditt rätt svar är <span class="ratt">(${ratt})</span> ditt fel svar är <span class="fel">(${wrong})</span> ` ;
+        scorediv.append(p)
+        containerdiv.append(scorediv)
+
+    }
+    else {
+        wrong++
+       
+        e.target.style.background="red";
+        containerbutton.classList.add("stop")
+        let scorediv=document.createElement("div");
+        scorediv.className="scorediv"
+
+        let p=document.createElement("p");
+           p.innerHTML=`fel svar ditt rätt svar är <span class="ratt">(${ratt})</span> ditt fel svar är <span class="fel">(${wrong})</span> ` ;
+
+        p.classList.add("p")
+        p.classList.add("scoretext")
+
+        containerdiv.append(scorediv)
+
+        scorediv.append(p)
+
+    }
+    
+
+// function next  click
+nextbtn.addEventListener("click",(e)=>{
+    
+        e.target.parentElement.remove()
+  
+
+})
+////////////////////////
+
+
+
+})
+
+})
+
+
+})
+//// end of  loop and  click funtion for button
+
+
+/// fuction score click button
+
+
+scorebtn.addEventListener("click",(e)=>{
+
+    /// clear setinterval for timer when u press score button
+    clearInterval(clear)
+    // call function stoppress in wrapper after u press in score button
+    stoppress();
+    // appear replay button
+    resetbtn.style.display="block"
+    let li=document.createElement("li");
+    let p=document.createElement("p");
+
+    li.innerHTML=`Din score är: ${score} -  du har fått ${wrong} fel svar  `
+    li.style.color="white"
+    if(score<50){
+        p.innerHTML= `din score ar = ${score} - Underkänt` 
+       p.style.color="red"
+       e.target.classList.add("stop")
+       scorediv.classList.add("score")
+
+
+       scorediv.append(li,p)
+    }
+    else if(score>=50 &&score<=75){
+        p.innerHTML= ` grattis din score ar = ${score} -bra`
+        p.style.color="orange"
+        e.target.classList.add("stop")
+
+        scorediv.classList.add("score")
+///  call funtion of appear grattis div after 2 second
+   setTimeout(grattis,2000);
+
+
+
+    }
+    else if(score>75){
+        p.innerHTML= ` grattis din score ar = ${score} -Riktigt bra`
+        p.style.color="green"
+        e.target.classList.add("stop")
+        scorediv.classList.add("score")
+        ///  call funtion of appear grattis div after 2 second
+
+          setTimeout(grattis,2000);
+
+    }
+    scorediv.append(li,p);
+})
+document.body.append(scorebtn,scorediv)
+scorebtn.className="btn"
+
+// grattis function
+function grattis(){
+    let grattis=document.createElement("p");
+    grattis.classList.add("grattis")
+    grattis.innerHTML="grattis";
+    document.body.append(grattis)
+    setInterval(()=>{
+     grattis.style.display="none"
+    },8000)
+}
+
+///timer variable
+
+let minute=document.querySelector(".minute");
+let second=document.querySelector(".second");
+//console.log(minute)
+//console.log(second)
+let countminute=0;
+let countsecond=0;
+
+/// fucntion timer
+function starttimer(){
+    countsecond++
+    if(countsecond<=9){
+        second.innerHTML="0"+countsecond;
+    }
+    if(countsecond>9){
+        second.innerHTML=countsecond;
+    }
+    if(countsecond>59){
+        countminute++;
+        minute.innerHTML="0"+countminute;
+        countsecond=0;
+        second.innerHTML="0"+0;
+      
+    }
+    if(countminute>9){
+        second.innerHTML=countsecond;
+        minute.innerHTML=countminute;
+
+    }
+}
+// function stoppress after u press in score button
+function stoppress(){
+    wrapper.classList.add("stop")
+}
+                          // replay btn and reset function
+resetbtn.innerText="replay";
+resetbtn.classList.add("resetbtn")
+resetbtn.classList.add("btn")
+
+document.body.append(resetbtn)
+resetbtn.addEventListener("click",()=>{
+    window.location.reload();
+
+})
+
+    
+    
+
