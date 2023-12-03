@@ -100,13 +100,19 @@ box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
 
 }
 .score{
-    background-color: rgb(7, 19, 185);
+    background-color:rgba(45, 38, 38, 0.84);
     font-size: 1.5rem;
     list-style: none;
     text-transform: capitalize;
     width: 400px;
+    height: 250px;
     text-align: center;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:10px
 }
 .startdiv{
     background-color: rgba(6, 6, 145, 0.713);
@@ -114,7 +120,6 @@ box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
     height: 6000px;
     position: absolute;
     z-index: 20;
-    
 }
 .startbtn{
     background-color: brown;
@@ -321,9 +326,8 @@ margin-bottom: 10px;
     }
     
     .score{
-        background-color: rgb(7, 19, 185);
-        font-size: 1rem;
-        width: 400px;
+        font-size: 1.5rem;
+        width: 300px;
         text-align: center;
         padding: 20px;
     }
