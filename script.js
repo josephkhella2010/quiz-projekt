@@ -162,6 +162,12 @@ btns.innerHTML=element.text
 containerbutton.append(btns)
 containerdiv.append(containerbutton,nextbtn);
 
+// add dataset.correct for each btn
+if(element.correct){
+    btns.dataset.correct=element.correct;
+    btns.dataset.text=element.text;
+}
+
 // click event fot all buttons
 btns.addEventListener("click",(e)=>{
     let answervalue=e.target.innerHTML;
@@ -173,42 +179,67 @@ btns.addEventListener("click",(e)=>{
    // function to see score and wrong
     let correctvalue=element.correct
    //console.log(correctvalue)
+    
     if(correctvalue==="true"){
         score+=10
         ratt++
         
-        e.target.style.background="green"
+       // e.target.style.background="green"
         containerbutton.classList.add("stop")
         let scorediv=document.createElement("div");
         let p=document.createElement("p");
         scorediv.className="scorediv"
         p.classList.add("p")
         p.classList.add("scoretext")
+        e.target.classList.add("correct")
 
-        p.innerHTML=`rätt bra gjört ditt rätt svar är <span class="ratt">(${ratt})</span> ditt fel svar är <span class="fel">(${wrong})</span> ` ;
+        p.innerHTML=`rätt bra gjört dina rätt svar är <span class="ratt">(${ratt})</span> dina fel svar är <span class="fel">(${wrong})</span> ` ;
         scorediv.append(p)
         containerdiv.append(scorediv)
 
     }
     else {
+        // callback function
+        trueAnswerColor();
         wrong++
        
-        e.target.style.background="red";
         containerbutton.classList.add("stop")
         let scorediv=document.createElement("div");
         scorediv.className="scorediv"
 
         let p=document.createElement("p");
-           p.innerHTML=`fel svar ditt rätt svar är <span class="ratt">(${ratt})</span> ditt fel svar är <span class="fel">(${wrong})</span> ` ;
+           p.innerHTML=`fel svar dina rätt svar är  <span class="ratt">(${ratt})</span> dina fel svar är <span class="fel">(${wrong})</span> ` ;
 
         p.classList.add("p")
         p.classList.add("scoretext")
+        e.target.classList.add("incorrect")
+
 
         containerdiv.append(scorediv)
 
         scorediv.append(p)
 
     }
+    //  do function for loop over each button container and if dataset is true add background color and text for true answer 
+    function trueAnswerColor(){
+    Array.from(containerbutton.children).forEach((button)=>{
+        if(button.dataset.correct==="true"){
+            button.classList.add("correct")
+            //console.log(button.dataset.text)
+            let rattsvardiv=document.createElement("div")
+            let p=document.createElement("p")
+            p.classList.add("p")
+            rattsvardiv.classList.add("rattsvar")
+          rattsvardiv.append(p)
+         containerdiv.append(rattsvardiv)
+
+
+            p.innerHTML=`fel svar  rätt svar är   <span class="ratt2">${button.dataset.text}</span>`
+            ;
+
+        }
+    })
+}
     
 
 // function next  click
@@ -339,7 +370,3 @@ resetbtn.addEventListener("click",()=>{
     window.location.reload();
 
 })
-
-    
-    
-
