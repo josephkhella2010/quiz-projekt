@@ -15,19 +15,16 @@ let questions=[{
     ],
 },
 {
-    question:"vilken huvudstad  är av france?",
-    answer:[{text:"nice", correct:"false"},
-            {text:"marsellie", correct:"false"},
-            {text:"paris", correct:"true"},
-            {text:"lyon", correct:"false"},
+    question:"  är huvudstad av france Paris?",
+    answer:[{text:"rätt", correct:"true"},
+        {text:"false", correct:"false"},
+    
     ],
 },
 {
-    question:"vilken huvudstad  är av spain?",
-    answer:[{text:"barcelona", correct:"false"},
-            {text:"valencia", correct:"false"},
-            {text:"malaga", correct:"false"},
-            {text:"madrid", correct:"true"},
+    question:"är huvudstad av  spain bercelona?",
+    answer:[ {text:"rätt", correct:"false"},
+        {text:"false", correct:"true"}, 
     ],
 },
 {
@@ -85,6 +82,37 @@ let ratt=0;
 
 let score=0;
 let wrong=0;
+
+let body=document.querySelector("body")
+// bytabackground  event listner farg for body
+
+let bytabackground=document.querySelector(".mode")
+bytabackground.addEventListener("click",(e)=>{
+    body.classList.toggle("toggle")
+
+    // change the name of btn with the same click 
+    if (bytabackground.classList.contains('ligthmode')) {
+        bytabackground.classList.remove('ligthmode');
+        bytabackground.textContent = e.target.dataset.text
+        bytabackground.style.color="white";
+        bytabackground.style.background="black";
+
+        
+    } else {
+        bytabackground.classList.add('ligthmode');
+        bytabackground.style.color="black";
+        bytabackground.style.background="orange";
+        bytabackground.style.fontWeight="bolder";
+
+        bytabackground.textContent = e.target.dataset.text1
+
+
+    
+    }
+
+
+  })
+
 // create wrapper,score div ,btn
 let scorediv=document.createElement("div")
 let scorebtn=document.createElement("button");
@@ -112,7 +140,7 @@ startbtn.addEventListener("click",(e)=>{
     e.target.parentElement.remove()
     timer.style.display="flex"
     ////////add timer function
-    clear=setInterval(starttimer,1000)
+    clear=setInterval(starttimer,500)
 
     let nameofuser=document.createElement("p");
     nameofuser.className="nameofuser";
@@ -129,6 +157,7 @@ startbtn.addEventListener("click",(e)=>{
 })
 
 
+  
 ////////////////le
 
 // loop in all array
@@ -141,7 +170,7 @@ questions.forEach((el,index)=>{
     containerdiv.className="container"
     let h1=document.createElement("h1")
     h1.className="h1"
-h1.innerText= `${index+1} - ${el.question}`
+h1.innerText= `${10-index} - ${el.question}`
 
 containerdiv.append(h1)
 wrapper.append(containerdiv)
@@ -153,8 +182,18 @@ nextbtn.className="nextbtn"
 nextbtn.innerHTML="next"
 // loop in answer array and create buttons
 
-el.answer.forEach((element)=>{
-    //console.log(element)
+// bytabackground  event listner farg for containerdiv och h1
+bytabackground.addEventListener("click",()=>{
+    containerdiv.classList.toggle("toggle");
+h1.classList.toggle("toggle")
+})
+/////////////////
+
+
+///////////
+
+
+el.answer.forEach((element,index)=>{
     let btns=document.createElement("button");
     btns.className="btn"
 btns.innerHTML=element.text
@@ -166,15 +205,23 @@ containerdiv.append(containerbutton,nextbtn);
 if(element.correct){
     btns.dataset.correct=element.correct;
     btns.dataset.text=element.text;
+    
 }
+// bytabackground  event listner button och text
+
+bytabackground.addEventListener("click",()=>{
+    btns.classList.toggle("toggle");
+    containerdiv.classList.toggle("toggle");
+
+})
 
 // click event fot all buttons
 btns.addEventListener("click",(e)=>{
     let answervalue=e.target.innerHTML;
-    
+  
 
 
-   // console.log(answervalue)
+
 
    // function to see score and wrong
     let correctvalue=element.correct
@@ -238,9 +285,10 @@ btns.addEventListener("click",(e)=>{
             ;
 
         }
+
+      
     })
 }
-    
 
 // function next  click
 nextbtn.addEventListener("click",(e)=>{
@@ -249,14 +297,9 @@ nextbtn.addEventListener("click",(e)=>{
   
 
 })
-////////////////////////
-
-
 
 })
-
 })
-
 
 })
 //// end of  loop and  click funtion for button
@@ -268,7 +311,10 @@ nextbtn.addEventListener("click",(e)=>{
 scorebtn.addEventListener("click",(e)=>{
 
     /// clear setinterval for timer when u press score button
-    clearInterval(clear)
+
+          clearInterval(clear)
+
+
     // call function stoppress in wrapper after u press in score button
     stoppress();
     // appear replay button
@@ -312,7 +358,9 @@ scorebtn.addEventListener("click",(e)=>{
     scorediv.append(li,p);
 })
 document.body.append(scorebtn,scorediv)
-scorebtn.className="btn"
+scorebtn.className="scorebtn"
+
+
 
 // grattis function
 function grattis(){
@@ -320,10 +368,10 @@ function grattis(){
     grattis.classList.add("grattis")
     grattis.innerHTML="grattis";
     document.body.append(grattis)
-    setInterval(()=>{
-     grattis.style.display="none"
-    },8000)
-}
+ setInterval(()=>{
+  grattis.style.display="none"
+ },10000)
+ }
 
 ///timer variable
 
@@ -370,3 +418,6 @@ resetbtn.addEventListener("click",()=>{
     window.location.reload();
 
 })
+
+    
+
