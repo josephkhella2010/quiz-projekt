@@ -130,17 +130,20 @@ let resetbtn= document.createElement("button");
 //start function
 let startbtn=document.createElement("button");
 startbtn.innerText="start"
-startbtn.classList.add("startbtn")
+startbtn.classList.add("startbtn");
+let h1start=document.createElement("h1")
+h1start.innerHTML="Velkommen till Quiz Game"
+h1start.className="h1start"
 let startdiv=document.createElement("div")
 startdiv.className="startdiv"
-startdiv.append(startbtn)
+startdiv.append(h1start,startbtn)
 document.body.append(startdiv);
 startbtn.addEventListener("click",(e)=>{
    let name =prompt("hejsan skriva ditt name")
     e.target.parentElement.remove()
     timer.style.display="flex"
     ////////add timer function
-    clear=setInterval(starttimer,500)
+    clear=setInterval(starttimer,1000)
 
     let nameofuser=document.createElement("p");
     nameofuser.className="nameofuser";
@@ -370,7 +373,7 @@ function grattis(){
     document.body.append(grattis)
  setInterval(()=>{
   grattis.style.display="none"
- },10000)
+ },8000)
  }
 
 ///timer variable
