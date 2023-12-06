@@ -4,16 +4,22 @@
     margin: 0;
     box-sizing: border-box;
 }
-.stop.containerbutton{
-    pointer-events: none;
 
-}
 .body{
     display:flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     background-color: gray;
+}
+/* styla start div && name av user && timer */
+.startdiv{
+    background-color: rgba(6, 6, 145, 0.713);
+    width: 100%;
+    height: 100dvh;
+    position: absolute;
+    z-index: 20;
+    
 }
 .h1start{
     text-align: center;
@@ -28,123 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.h1{
-    color:aliceblue;
-    text-transform: capitalize;
-width: 90%;
-    height: 80px;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-    border: 2px solid black;
-font-size: 1.7rem;
-border-radius: 10px;
-box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
-
-}
-
-.container{
-    background-color:rgb(133, 3, 3);
-    width: 690px;
-    height: 600px;
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-bottom: 5px;
-padding: 30px 15px;
-position: absolute; 
-z-index: 2;
-gap:5px
-
-
-}
-.wrapper{
-    width: 100%;
-    height: 100%;
-    display: flex;
-flex-direction: column;
-align-items: center;
-background-color: gray;
-
-}
-.btn{
-    height: 40px;
-    width: 300px;
- margin: 5px;
- color:white;
- background-color: black;
- text-transform: capitalize;
- font-size: 1.1rem;
- border-radius: 15px;
- box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
-
-}
-.btn:hover{
-    background-color:rgb(3, 77, 150);
-    color:yellow;
-}
-.containerbutton{
-    display: flex;
-    flex-direction: column;
-    gap:15px;
-    margin: 10px;
-
-}
-.nextbtn{
-    height: 40px;
-    width: 200px;
- margin: 5px;
- color:white;
- background-color: rgb(9, 81, 114);
- text-transform: capitalize;
- font-size: 1.1rem; 
- position: absolute;
- bottom:20px;
- right: 30px;
-border-radius: 15px;
-box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
-
-}
-.p{
-    color:white;
-    font-size: 1.3rem; 
-    text-transform: capitalize;
-}
-.stop{
-    pointer-events: none;
-
-}
-.score{
-    background-color: rgba(7, 19, 193, 0.697);
-    font-size: 1.5rem;
-    list-style: none;
-    text-transform: capitalize;
-    width: 500px;
-    height: 300px;
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    top:180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    gap:20px;
-    animation-name: scorecolor;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;  
-}
-.startdiv{
-    background-color: rgba(6, 6, 145, 0.713);
-    width: 100%;
-    height: 100dvh;
-    position: absolute;
-    z-index: 20;
-    
 }
 .startbtn{
     background-color: brown;
@@ -178,43 +67,6 @@ box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
     justify-content: center;
     overflow: auto;
     position: fixed;
-
-
-}
-.grattis{
-    background-color: rgba(184, 121, 11, 0.858);
-    width: 500px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    color: white;
-    font-size: 2rem;
-    text-transform: uppercase;
-    z-index: 500;
-    animation-name: grattiscolor;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;     
-
-}
-.head{
-    display:flex;
-width: 700px;
-height: 80px;
-align-items: center;
-justify-content: flex-end;
-gap: 20px;
-}
-.header{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-    border: 2px solid black;
-    background-color: bisque;
 }
 .timer{
     background-color: rgba(0, 0, 139, 0.406);
@@ -233,20 +85,130 @@ right:20px;
 top:0px;
 z-index: 200;
 display: none;
+}
+/* styla header */
+.head{
+    display:flex;
+width: 700px;
+height: 80px;
+align-items: center;
+justify-content: flex-end;
+gap: 20px;
 
 }
+.header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    border: 2px solid black;
+    background-color: bisque;
+}
+
+/* styla main container && h1 question && button  */
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+flex-direction: column;
+align-items: center;
+background-color: gray;
+}
+.container{
+    background-color:rgb(133, 3, 3);
+    width: 690px;
+    height: 600px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 5px;
+padding: 30px 15px;
+position: absolute; 
+z-index: 10;
+gap:5px;
+box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+border-radius: 15px;
+
+}
+.h1{
+    color:aliceblue;
+    text-transform: capitalize;
+width: 90%;
+    height: 80px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    border: 2px solid black;
+font-size: 1.7rem;
+border-radius: 10px;
+box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+
+}
+.containerbutton{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    margin: 10px;
+}
+.btn{
+    height: 40px;
+    width: 300px;
+ margin: 5px;
+ color:white;
+ background-color: black;
+ text-transform: capitalize;
+ font-size: 1.1rem;
+ border-radius: 15px;
+ box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+
+}
+.btn:hover{
+  
+    color:yellow;
+    cursor: grab;
+}
+.p{
+    color:white;
+    font-size: 1.2rem; 
+    text-transform:capitalize;
+}
+
+
+
+
+.nextbtn{
+    height: 40px;
+    width: 200px;
+ margin: 5px;
+ color:white;
+ background-color: rgb(9, 81, 114);
+ text-transform: capitalize;
+ font-size: 1.1rem; 
+ position: absolute;
+ bottom:20px;
+ right: 30px;
+border-radius: 15px;
+box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+
+}
+/* styla score div  och score button och score coh grattis   */
 .scorediv{
     background-color:rgb(4, 67, 148);
     width: 90%;
     height: 60px;
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 5px;
     border-radius: 15px;
     box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
-    
+    gap:2px
     
 }
 .scorebtn{
@@ -262,18 +224,145 @@ display: none;
  position: relative;
  top: 50px;
 }
-.ratt{
-color:green;
-font-weight: bolder;
+
+.score{
+    background-color: rgba(7, 19, 193, 0.697);
+    font-size: 1.5rem;
+    list-style: none;
+    text-transform: capitalize;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top:180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap:20px;
+    animation-name: scorecolor;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;  
 }
-.fel{
-color:red;
-font-weight: bolder;
+
+.grattis{
+    background-color: rgba(184, 121, 11, 0.858);
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    z-index: 500;
+    animation-name: grattiscolor;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;     
+}
+
+.rattsvar{
+    background-color:rgb(167, 126, 5);
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+    margin-bottom: 10px;
+}
+
+/*styla second container (checkbox) && label && score dive for second container */
+.second-container{
+    background-color:rgb(133, 3, 3);
+    width: 650px;
+    height: 600px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 5px;
+padding: 30px 15px;
+z-index: 2;
+gap:5px;
+position: absolute;
+box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+border-radius: 15px;
 
 }
+.containercheckbox{
+    width: 50%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:10px;
+    margin-top:10px;
+
+}
+
+label{
+    width: 80%;
+    height: 40px;
+    font-size: 1.2rem;
+    border: 2px solid black;
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    text-transform: capitalize;
+    box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.scorediv1{
+    background-color:rgb(4, 67, 148);
+    width: 90%;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+    gap:2px
+}
+/* styla span ratt och fel */
+.ratt{
+    color:green;
+    font-weight: bolder;
+    }
+    .fel{
+    color:red;
+    font-weight: bolder;
+    }
+    .ratt2{
+        color:darkgreen;
+        font-size: 1.5rem;
+        font-weight: bolder;
+    }
+    
+/* classlist add   classes*/
+.stop.containerbutton{
+    pointer-events: none;
+
+}
+.stop{
+    pointer-events: none;
+
+}
+
 .scoretext{
     color:yellow;
-    text-transform: lowercase;
+    text-transform: capitalize;
 }
 .resetbtn{
     display:none;
@@ -291,45 +380,11 @@ font-weight: bolder;
     color:gold;
     font-size: larger;
 }
-.rattsvar{
-    background-color:rgb(167, 126, 5);
-    width: 500px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:white;
-    border-radius: 15px;
-    box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
-    margin-bottom: 10px;
-}
-.ratt2{
-    color:darkgreen;
-    font-size: 1.5rem;
-    font-weight: bolder;
-}
+
+
+
 /* toggle */
-
-.toggle.container{
-    background-color:chocolate;
-}
-
-.toggle.btn{
-color:black;
-    background-color:burlywood;
-}
-.toggle.btn:hover{
-    background-color: purple;
-    color:cornsilk
-}
-.toggle.body{
-    background-color: rgba(255, 255, 255, 0.369);
-}
-.toggle.h1{
-    background-color: rgb(184, 121, 11);
-
-}
-
+/* ligthmode and toggle class */
 .mode{
     height: 40px;
     width: 250px;
@@ -343,6 +398,59 @@ color:black;
  margin-bottom: 15px;
 
 }
+
+.toggle.container{
+    background-color:chocolate;
+}
+
+.toggle.btn{
+color:black;
+background-color: bisque;
+}
+
+.toggle.body{
+    background-color: rgba(255, 255, 255, 0.369);
+}
+.toggle.h1{
+    background-color: rgb(184, 121, 11);
+
+}
+.toggle.correct{
+    background-color:green;
+    color:gold;
+    font-size: larger;
+
+}
+.toggle.incorrect{
+    background-color:red;
+    color:gold;
+    font-size: larger;
+}
+
+
+/* toggle 
+
+.toggle.second-container{
+    background-color:chocolate;
+}
+
+.toggle.label{
+color:black;
+    background-color:burlywood;text-align: center;
+  
+}
+.toggle.label:hover{
+    background-color: purple;
+    color:cornsilk
+}
+.toggle.body{
+    background-color: rgba(255, 255, 255, 0.369);
+}
+.toggle.h1{
+    background-color: rgb(184, 121, 11);
+
+}
+*/
 
 /* animation */
 @keyframes grattiscolor{
@@ -372,89 +480,20 @@ color:black;
     transform:  scale(1.4);}
 }
 @keyframes scorecolor{
-    0%{ background-color:rgba(145, 144, 144, 0.677);
+    0%{ background-color:#9c037db1;
         transform:  scale(0.5);}
-    20%{  background-color:rgba(126, 107, 107, 0.733);
+    20%{  background-color:#74045db1;
         transform:  scale(0.7);}
-    40%{ background-color:rgb(118, 70, 70);
+    40%{ background-color:rgba(104, 16, 86, 0.694);
         transform:  scale(0.9);}
-    60%{background-color:rgba(115, 12, 12, 0.707);
+    60%{background-color:#3c3cc4a6#333399a6;
         transform:  scale(1);}
-    80%{ background-color:rgba(128, 0, 128, 0.642);
+    80%{ background-color:#3535b0a6;
         transform:  scale(1.1);}
-    100%{background-color:rgba(90, 3, 90, 0.632);
+    100%{background-color:#333399a6;
         transform:  scale(1.2);}
     }
 @media(max-width:1000px){
-    .h1start{
-        width: 300px;
-        top:38%;
-        font-size: 1.5rem;   
-    }
-   
-    .h1{
-        color:aliceblue;
-        text-transform: capitalize;
-    width: 90%;
-        height: 70px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-transform: capitalize;
-        border: 2px solid black;
-    font-size: 1rem;
-    }
-    
-    .container{
-        width: 350px;
-        height: 560px;
-    display: flex;
-   
-    margin-bottom: 5px;
-    }
-    .wrapper{
-        width: 100%;
-        height: 100%;
-   
-    }
-    .btn{
-        height: 40px;
-        width: 250px;
-     margin: 5px;
-     font-size: 0.8rem;
-     font-weight: bolder;
-    
-    }
-    
-    
-    .nextbtn{
-        height: 30px;
-        width: 120px;
-     margin: 5px;
-     color:white;
-     background-color: rgb(9, 81, 114);
-     
-     font-size: 0.8rem; 
-     position: absolute;
-     bottom:10px;
-     right: 10px;
-     
-    border-radius: 15px;
-    }
-    .p{
-        color:white;
-        font-size: 1rem; 
-        text-transform: capitalize;
-    
-    
-    }
-    
-    .score{
-        font-size: 1rem;
-        width: 350px;
-        text-align: center;
-        padding: 20px;
-    }
     .startdiv{
         background-color: rgba(6, 6, 145, 0.713);
         width: 100%;
@@ -462,6 +501,11 @@ color:black;
         position: absolute;
         z-index: 20; 
         
+    }
+    .h1start{
+        width: 300px;
+        top:38%;
+        font-size: 1.5rem;   
     }
     .startbtn{
         background-color: brown;
@@ -480,24 +524,45 @@ color:black;
         left:5px;
         width: 100px;
         height: 60px;
-       
         border: 2px solid black;
         padding: 5px;
         font-size: 0.9rem;
-       
-    
-    
     }
-    .grattis{
-        width: 300px;
-        height: 300px;
-        position: absolute;
-        color: white;
-        font-size: 2rem;
-        text-transform: uppercase;
-        z-index: 2;
-         
+    .timer{
+     
+        width: 100px;
+        height: 60px;
+       letter-spacing: 2px;
+        align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    border-radius: 15px;
+    text-transform: capitalize;
+    color:rgb(231, 227, 223);
+    position: fixed;
+    right:5px;
+    top:0px;
+    z-index: 200;
+    display: none;
+    }
+   
+   
+
+
+  /* main container */
+    .wrapper{
+        width: 100%;
+        height: 100%;
+   
+    }
     
+    .container{
+        width: 350px;
+        height: 560px;
+    display: flex;
+   
+    margin-bottom: 5px;
     }
     .head{
         display:flex;
@@ -519,23 +584,30 @@ color:black;
         border: 2px solid black;
         background-color: bisque;
     }
-    .timer{
-     
-        width: 100px;
-        height: 60px;
-       letter-spacing: 2px;
+    .h1{
+        color:aliceblue;
+        text-transform: capitalize;
+    width: 90%;
+        height: 70px;
+        display: flex;
+        justify-content: center;
         align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bolder;
-    border-radius: 15px;
-    text-transform: capitalize;
-    color:rgb(231, 227, 223);
-    position: fixed;
-    right:5px;
-    top:0px;
-    z-index: 200;
-    display: none;
+        text-transform: capitalize;
+        border: 2px solid black;
+    font-size: 1rem;
+    }
+
+    .btn{
+        height: 40px;
+        width: 250px;
+        margin: 4px;
+         font-size: 0.8rem;
+     font-weight: bolder;
+    
+    }
+
+    .btn:hover{
+        color:yellow;
     }
     .scorediv{
         background-color:rgb(4, 67, 148);
@@ -545,16 +617,7 @@ color:black;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0px;
-    }
-    .p{
-        color:aliceblue;
-        font-size: 0.9rem; 
-        text-transform: capitalize;
-    }
-    .btn{
-        
-     margin: 4px;
+        margin: 5px;
 
     }
     .rattsvar{
@@ -569,5 +632,110 @@ color:black;
         box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
     margin-bottom: 20px;
     }
+    .nextbtn{
+        height: 30px;
+        width: 120px;
+     margin: 5px;
+     color:white;
+     background-color: rgb(9, 81, 114);
+     
+     font-size: 0.8rem; 
+     position: absolute;
+     bottom:10px;
+     right: 10px;
+     
+    border-radius: 15px;
+    }
+    
+    .p{
+        color:aliceblue;
+        font-size: 0.8rem; 
+        text-transform: capitalize;
+    }
+  
+    /* score divs  */
+    .score{
+        font-size: 1rem;
+        width: 350px;
+        text-align: center;
+        padding: 20px;
+    }
+    .grattis{
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        color: white;
+        font-size: 2rem;
+        text-transform: uppercase;
+        z-index: 2;  
+    }
+    
+
+    /* second container */
+    .second-container{
+        width: 350px;
+        height: 560px;
+    display: flex;
+   
+    margin-bottom: 5px;
+    }
+    .containercheckbox{
+        width: 80%;
+    }
+    .scorediv1{
+        background-color:rgb(4, 67, 148);
+        width: 90%;
+        height: 100px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 5px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+        gap:7px;
+        padding: 10px ;
+    }
+    label{
+        width: 200px;
+        height: 40px;
+        font-size: 1.2rem;
+        border: 2px solid black;
+        background-color: black;
+        color: aliceblue;
+        text-align: center;
+        text-transform: capitalize;
+        box-shadow: 0px 0px 5px 5px rgb(0, 255, 234);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /*toggle classes*/
+  
+    .correct{
+        background-color: green;
+        color:gold;
+        font-size: larger;
+    }
+    .incorrect{
+        background-color: red;
+        color:gold;
+        font-size: larger;
+    }
+        .toggle.correct{
+            background-color:green;
+            color:gold;
+            font-size: larger;
+        
+        }
+        .toggle.incorrect{
+            background-color:red;
+            color:gold;
+            font-size: larger;
+        }
+    
+    }
  
-}
+
